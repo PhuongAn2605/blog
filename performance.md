@@ -46,6 +46,9 @@ Mục tiêu là giữ UI mượt, phản hồi nhanh khi edit/scroll, edit inlin
 - **Update data**: Update rowData bằng native function của AGGrid: setDataValue, setData, applyTransaction cho 1 dòng dữ liệu thay vì update data cả table
 - **Disable row**: Thêm 1 prop rowDisabled: true/false vào từng row để disable chỉ 1 row khi đang call API update ( update bằng native function của AGGrid)
 
+<img width="1842" height="926" alt="image" src="https://github.com/user-attachments/assets/9b47957f-0b2b-451d-bccd-58582b32e0de" />
+
+
 ## Tổng kết
 
 Kết hợp các giải pháp trên giúp tối ưu hiệu năng khi làm việc với bảng dữ liệu lớn, đảm bảo trải nghiệm người dùng mượt mà và đáp ứng yêu cầu nghiệp vụ.
