@@ -1,6 +1,12 @@
 # Performance
 
-Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với khả năng chỉnh sửa trực tiếp trong AGGrid, undo/redo với yêu cầu là show toàn bộ dòng dữ liệu. Mục tiêu là giữ UI mượt, phản hồi nhanh khi cuộn, sửa ô, và thao tác phím tắt.
+Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với các tính năng:
+- chỉnh sửa trực tiếp trong AGGrid
+- undo/redo
+- show toàn bộ dòng dữ liệu
+- Lưu lại từng action của người dùng
+- Update lại dữ liệu của 1 row khi row đó bị outdated (row được update bởi người khác nhưng chưa lấy về được dữ liệu mới nhất)
+Mục tiêu là giữ UI mượt, phản hồi nhanh khi edit/scroll, edit inline, và thao tác phím tắt Ctrl Z / Cmd Z, Ctrl Y / Cmd Y.
 
 ## Các giải pháp tối ưu:
 
@@ -37,6 +43,7 @@ Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với khả năng
 
 - **Dùng ImperativeHandle**: Để trigger event từ parent đến child mà không gây ra re-render.
 - **Xử lý key press bằng ImperativeHandle**: Thay vì xử lý trong useEffect ở parent component, nên xử lý trực tiếp qua ImperativeHandler để tối ưu hiệu năng.
+- **Uơdate data**: Update rowData bằng native function của AGGrid: setDataValue, setData, applyTransaction cho 1 dòng dữ liệu thay vì update data cả table
 
 ## Tổng kết
 
