@@ -16,10 +16,8 @@ Mục tiêu là giữ UI mượt, phản hồi nhanh khi edit/scroll, edit inlin
         rowData={rows}
         columnDefs={columnDefs}
         // Tối ưu cuộn
-        suppressColumnVirtualisation={false}
-        rowBuffer={Math.min(20, Math.ceil(window.innerHeight / 40))}
+        rowBuffer={20}
         // Tránh re-render không cần thiết
-        immutableData={true}
         getRowId={(p) => p.data.id}
       />
 
