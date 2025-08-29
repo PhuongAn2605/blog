@@ -1,6 +1,6 @@
 # Performance
 
-Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với khả năng chỉnh sửa trực tiếp trong AGGrid và undo/redo. Mục tiêu là giữ UI mượt, phản hồi nhanh khi cuộn, sửa ô, và thao tác phím tắt.
+Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với khả năng chỉnh sửa trực tiếp trong AGGrid, undo/redo với yêu cầu là show toàn bộ dòng dữ liệu. Mục tiêu là giữ UI mượt, phản hồi nhanh khi cuộn, sửa ô, và thao tác phím tắt.
 
 ## Các giải pháp tối ưu:
 
@@ -35,8 +35,8 @@ Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với khả năng
     const undoStack = useSelector((state: RootState) => state.term.undoStack);
     ```
 
-- **Dùng ImperativeHandler**: Để trigger event từ parent đến child mà không gây ra re-render.
-- **Xử lý key press bằng ImperativeHandler**: Thay vì xử lý trong useEffect ở parent component, nên xử lý trực tiếp qua ImperativeHandler để tối ưu hiệu năng.
+- **Dùng ImperativeHandle**: Để trigger event từ parent đến child mà không gây ra re-render.
+- **Xử lý key press bằng ImperativeHandle**: Thay vì xử lý trong useEffect ở parent component, nên xử lý trực tiếp qua ImperativeHandler để tối ưu hiệu năng.
 
 ## Tổng kết
 
