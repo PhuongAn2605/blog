@@ -6,6 +6,7 @@ Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với các tính 
 - Show toàn bộ dòng dữ liệu
 - Lưu lại từng action của người dùng
 - Update lại dữ liệu của 1 row khi row đó bị outdated (row được update bởi người khác nhưng chưa lấy về được dữ liệu mới nhất)
+- Disable updating row
 Mục tiêu là giữ UI mượt, phản hồi nhanh khi edit/scroll, edit inline, và thao tác phím tắt Ctrl Z / Cmd Z, Ctrl Y / Cmd Y.
 
 ## Các giải pháp tối ưu:
@@ -41,7 +42,8 @@ Mục tiêu là giữ UI mượt, phản hồi nhanh khi edit/scroll, edit inlin
 
 - **Dùng ImperativeHandle**: Để trigger event từ parent đến child mà không gây ra re-render.
 - **Xử lý key press bằng ImperativeHandle**: Thay vì xử lý trong useEffect ở parent component, nên xử lý trực tiếp qua ImperativeHandler để tối ưu hiệu năng.
-- **Uơdate data**: Update rowData bằng native function của AGGrid: setDataValue, setData, applyTransaction cho 1 dòng dữ liệu thay vì update data cả table
+- **Update data**: Update rowData bằng native function của AGGrid: setDataValue, setData, applyTransaction cho 1 dòng dữ liệu thay vì update data cả table
+- **Disable row**: Thêm 1 prop rowDisabled: true/false vào từng row để disable chỉ 1 row khi đang call API update ( update bằng native function của AGGrid)
 
 ## Tổng kết
 
