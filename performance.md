@@ -1,9 +1,9 @@
 # Performance
 
 Context: Bảng dữ liệu lớn (≥20k dòng) dùng AG Grid với các tính năng:
-- chỉnh sửa trực tiếp trong AGGrid
+- Chỉnh sửa trực tiếp trong AGGrid
 - undo/redo
-- show toàn bộ dòng dữ liệu
+- Show toàn bộ dòng dữ liệu
 - Lưu lại từng action của người dùng
 - Update lại dữ liệu của 1 row khi row đó bị outdated (row được update bởi người khác nhưng chưa lấy về được dữ liệu mới nhất)
 Mục tiêu là giữ UI mượt, phản hồi nhanh khi edit/scroll, edit inline, và thao tác phím tắt Ctrl Z / Cmd Z, Ctrl Y / Cmd Y.
